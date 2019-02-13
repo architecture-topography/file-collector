@@ -1,0 +1,29 @@
+{
+  "name": "json-collector",
+  "version": "1.0.0",
+  "description": "JSON collector for topo",
+  "main": "./lib/index.js",
+  "bin": {
+    "topo-json-collector": "./lib/index.js"
+  },
+  "scripts": {
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "create": "npm run build && npm run test",
+    "build": "tsc -p .",
+    "test": "sudo npm i -g && topo-json-collector",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+  },
+  "repository": "git@github.com:architecture-topography/json-collector.git",
+  "dependencies": {
+    "@types/figlet": "^1.2.0",
+    "@types/node": "^11.9.3",
+    "chalk": "^2.4.2",
+    "clear": "^0.1.0",
+    "commander": "^2.19.0",
+    "figlet": "^1.2.1",
+    "nodemon": "^1.18.10",
+    "path": "^0.12.7",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3"
+  }
+}
