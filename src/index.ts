@@ -1,10 +1,4 @@
 #!/usr/bin/env node
+import cli from './cli';
 
-import chalk from 'chalk'
-import figlet from 'figlet';
-
-console.log(
-  chalk.yellow(
-    figlet.textSync('TOPO JSON Collector', {horizontalLayout: 'full'}),
-  )
-);
+cli();
