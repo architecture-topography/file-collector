@@ -16,6 +16,12 @@ const cli = (args: any = process.argv) => {
     .option("--port <port>", "Set port")
     .parse(process.argv);
 
+    if (!commander.file){
+      console.log(
+        chalk.red("ERROR: Please provide a file")
+      )
+    }
+
   commander.outputHelp();
 };
 
