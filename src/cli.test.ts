@@ -1,23 +1,25 @@
-import cli from './cli';
+import cli from "./cli";
+import { mockProcessStdout } from "jest-mock-process";
+const CLIOUTPUT_INDEX = 2;
 
-class MockedConsole {
-  output: string;
-  constructor(){
-    this.output = '';
-  }
-  log(message: string) {
-    this.output += message;
-  }
-  toString() {
-    return this.output;
-  }
-}
+describe("cli", () => {
+  let mockStdout: any;
+  afterEach(() => {
+    mockStdout.mockRestore();
+  });
 
-describe('cli', () => {
-  it('Startup text matches snapshot', () => {
-    const mockedConsole = new MockedConsole();
+  beforeEach(() => {
+    mockStdout = mockProcessStdout();
+  });
 
-    cli(mockedConsole);
-    expect(mockedConsole.toString()).toMatchSnapshot();
+  it("startup text should match snapshot", () => {
+    cli();
+    expect((mockStdout as any).mock.calls).toMatchSnapshot();
+  });
+
+  it("check that options are shown when no arguments are given", () => {
+    cli();
+    expect(JSON.stringify((mockStdout as any).mock.calls)).toContain('Usage:');
+    expect(JSON.stringify((mockStdout as any).mock.calls)).toContain('Options:');
   })
 });
