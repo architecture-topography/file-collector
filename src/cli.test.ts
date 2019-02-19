@@ -1,4 +1,4 @@
-import cli from "./cli";
+import cli, {checkFile, parseJsonFileContent} from "./cli";
 import { mockProcessStdout } from "jest-mock-process";
 const CLIOUTPUT_INDEX = 2;
 
@@ -27,6 +27,43 @@ describe("cli", () => {
   it("get upset if no file is provided", () => {
     const args = ['--host', 'http://fakeurl', '--port', '2000'];
     cli(args);
-    expect(JSON.stringify((mockStdout as any).mock.calls)).toContain('ERROR: Please provide a file');
+    expect(JSON.stringify((mockStdout as any).mock.calls)).toContain('Error: Please provide a file');
   });
+
+  describe("checkFile functionality", () => {
+    it("if valid json file provided, no error thrown", () => {
+      const filename = "hey/its/me/te.st.json";
+      expect(() => checkFile(filename)).not.toThrow();
+    })
+
+    it("if file is not .json format, throw an exception", () => {
+      const filename = "test.text";
+      expect(() => checkFile(filename)).toThrow();
+    })
+
+    it("if .json is in the path but it is not a valid json file, throw an exception", () => {
+      const filename = ".json/test.text";
+      expect(() => checkFile(filename)).toThrow();
+    })
+
+    it("if file does not have a filename, throw an exception", () => {
+      const filename = "apples";
+      expect(() => checkFile(filename)).toThrow();
+    })
+  });
+
+  describe("parseJsonFileContent functionality", () => {
+    it("if file content is invalid JSON, throw exception", () => {
+      const badJson = `"data":{"type": "string"}`;
+      expect(() => parseJsonFileContent(badJson)).toThrow();
+    })
+
+    it("if file content is valid JSON, return parsed json object", () => {
+      const goodJson = `{"data":{"type": "string"}}`;
+      const returnedJsonObj = parseJsonFileContent(goodJson);
+
+      const expectedJsonObj = { data: {"type": "string"}};
+      expect(returnedJsonObj).toEqual(expectedJsonObj);
+    })
+  })
 });
