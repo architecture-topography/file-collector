@@ -8,17 +8,23 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noEmit": true,
+    "strict": true,
+    "sourceMap": true,
     "outDir": "lib",
     "rootDir": "src",
-    "types": ["node", "jest"]
+    "types": [
+      "node",
+      "jest"
+    ],
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "src/*.test.*"
   ]
 }
