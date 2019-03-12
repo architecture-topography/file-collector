@@ -1,0 +1,64 @@
+{
+  "technologies": [
+    {
+      "id": "tech_ruby",
+      "name": "Ruby on Rails"
+    },
+    {
+      "id": "tech_elixir",
+      "name": "Elixir"
+    },
+    {
+      "id": "tech_react",
+      "name": "React"
+    }
+  ],
+  "boxes": [
+    {
+      "id": "thoughtworks",
+      "name": "ThoughtWorks",
+      "boxType": "Platform",
+      "boxes": [
+        {
+          "id": "demand",
+          "name": "Demand",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "selling_work",
+              "name": "Selling Work",
+              "boxType": "Capability",
+              "systems": [
+                {
+                  "id": "sales_funnel",
+                  "name": "Sales Funnel",
+                  "technologies": ["tech_react"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "staffing",
+          "name": "Staffing",
+          "boxType": "Domain"
+        },
+        {
+          "id": "finance",
+          "name": "Finance",
+          "boxType": "Domain"
+        },
+        {
+          "id": "people",
+          "name": "People",
+          "boxType": "Domain"
+        },
+        {
+          "id": "finance",
+          "name": "Professional Services",
+          "boxType": "Domain"
+        }
+      ]
+    }
+  ]
+}
