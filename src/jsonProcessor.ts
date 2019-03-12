@@ -1,6 +1,6 @@
 import Ajv from 'ajv';
 import schema from './schema/jsonSchema.json';
-import {createTechnology, createBox} from './topoInterface';
+import {createBox, createSystem, createTechnology} from './topoInterface';
 
 const ajv = new Ajv();
 const validate = ajv.compile(schema);
@@ -10,6 +10,13 @@ interface IBox {
   name: string;
   boxType: string;
   boxes?: IBox[];
+  systems?: ISystem[];
+}
+
+interface ISystem {
+  id: string;
+  name: string;
+  technologies: string[];
 }
 
 export const process = (json: any) => {
@@ -44,12 +51,23 @@ const createBoxes = async (
       parentId,
     });
 
+    if (box.systems) {
+      await createSystems(box.systems, box.id);
+    }
+
     if (box.boxes) {
       // recusively create child boxes
       await createBoxes(box.boxes, box.id);
     }
   });
   return Promise.all(boxQueries);
+};
+
+const createSystems = async (systems: ISystem[], parentId: string) => {
+  const systemQueries = systems.map(async system => {
+    await createSystem(system.id, system.name, system.technologies, parentId);
+  });
+  return Promise.all(systemQueries);
 };
 
 export default {

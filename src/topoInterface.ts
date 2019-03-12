@@ -2,7 +2,7 @@ export const createBox = (id: string, name: string, boxType: string, options?: {
   // stub for creating box
 };
 
-export const createSystem = () => {
+export const createSystem = (id: string, name: string, technologies: string[], parentId: string) => {
   // stub for creating box
 };
 
