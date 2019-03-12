@@ -12,7 +12,13 @@
     "create": "npm run build && npm run test",
     "build": "tsc -p .",
     "test": "yarn jest src/",
-    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write 'src/**/*.{ts,js,graphql}?(x)'",
+    "prettier-fix": "yarn prettier --fix",
+    "lint": "yarn tslint -c tslint.json 'src/**/*.{ts,js}?(x)'",
+    "lint-fix": "yarn run lint --fix",
+    "copyright": "copyright-header --copyrightHolder \"Thoughtworks Inc. All rights reserved\" --templateId \"apache\"",
+    "copyright-fix": "yarn run copyright --fix"
   },
   "repository": "git@github.com:architecture-topography/json-collector.git",
   "dependencies": {
@@ -24,14 +30,18 @@
     "figlet": "^1.2.1",
     "nodemon": "^1.18.10",
     "path": "^0.12.7",
+    "prettier": "^1.16.4",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.3"
   },
   "devDependencies": {
     "@types/jest": "^24.0.3",
     "@types/mocha": "^5.2.5",
+    "copyright-header": "^0.4.4",
     "jest": "^24.1.0",
     "jest-mock-process": "^1.1.0",
-    "ts-jest": "^23.10.5"
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.13.1",
+    "tslint-config-prettier": "^1.18.0"
   }
 }
