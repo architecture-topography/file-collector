@@ -1,4 +1,4 @@
-export const createBox = () => {
+export const createBox = (id: string, name: string, boxType: string, options?: {parentId?: string}) => {
   // stub for creating box
 };
 
