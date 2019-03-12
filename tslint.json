@@ -1,0 +1,21 @@
+{
+  "defaultSeverity": "error",
+  "linterOptions": {
+      "exclude": [
+          "{client,server}/node_modules/**",
+          "{server,client}/build/**",
+          "**/*.test.{ts,js}?(x)"
+      ]
+  },
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+    ],
+    "jsRules": {},
+    "rules": {
+      "variable-name": ["allow-leading-underscore"],
+      "no-console": [false],
+      "member-access": [false]
+    },
+    "rulesDirectory": []
+}
