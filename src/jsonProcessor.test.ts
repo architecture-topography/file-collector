@@ -3,8 +3,10 @@ import {createBox, createSystem, createTechnology} from './topoInterface';
 jest.mock('./topoInterface');
 
 describe('Json validation', () => {
-  beforeEach(() => { 
+  beforeEach(() => {
     (createBox as any).mockClear();
+    (createTechnology as any).mockClear();
+    (createSystem as any).mockClear();
   });
 
   it('expect empty json to throw error', () => {
@@ -75,12 +77,62 @@ describe('Json validation', () => {
     expect(createBox).toHaveBeenCalledWith(
       'thoughtworks',
       'ThoughtWorks',
-      'Platform',{
-        parentId: undefined
-      }
+      'Platform',
+      {
+        parentId: undefined,
+      },
     );
     expect(createBox).toHaveBeenCalledWith('child', 'Child Box', 'Domain', {
       parentId: 'thoughtworks',
     });
+  });
+
+  it('create a box with system and technology', async () => {
+    const json = {
+      boxes: [
+        {
+          id: 'thoughtworks',
+          boxType: 'Platform',
+          name: 'ThoughtWorks',
+          systems: [
+            {
+              id: 'system_001',
+              name: 'Cool System',
+              technologies: ['react'],
+            },
+          ],
+        },
+      ],
+      technologies: [
+        {
+          id: 'react',
+          name: 'React',
+        },
+      ],
+    };
+    await jsonProcessor.process(json);
+    expect(createBox).toHaveBeenCalledWith(
+      'thoughtworks',
+      'ThoughtWorks',
+      'Platform',
+      {
+        parentId: undefined,
+      },
+    );
+    expect(createTechnology).toHaveBeenCalledWith('react', 'React');
+    expect(createBox).toHaveBeenCalledWith(
+      'thoughtworks',
+      'ThoughtWorks',
+      'Platform',
+      {
+        parentId: undefined,
+      },
+    );
+    expect(createSystem).toHaveBeenCalledWith(
+      'system_001',
+      'Cool System',
+      ['react'],
+      'thoughtworks',
+    );
   });
 });
