@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:8.12
+    steps:
+      - checkout
+      # - restore_cache:
+      #     name: Restore Cache
+      #     keys:
+      #       - node-dependency-cache-{{ checksum "yarn.lock" }}
+      #       - node-dependency-cache-
+      # - save_cache:
+      #     name: Cache Dependencies
+      #     key: node-dependency-cache-{{ checksum "yarn.lock" }}
+      #     paths:
+      #       - node_modules
+      #       - client/node_modules
+      #       - server/node_modules
+      - run:
+          name: "Install requirements"
+          command: |
+            yarn install
+      - run:
+          name: "Run Unit Tests"
+          command: |
+            yarn test
+      - run:
+          name: Chat Notification Fail
+          when: on_fail
+          command: >
+            curl --header "Content-Type: application/json"
+            --request POST
+            --data "{\"cards\":[{\"header\":{\"title\":\"[${CIRCLE_BUILD_NUM}] Oh no! The build is broken! @Giphy broken build\",\"subtitle\":\"${CIRCLE_PROJECT_REPONAME}\",\"imageUrl\":\"https://png.pngtree.com/svg/20170406/icon_failed__1325447.png\",\"imageStyle\":\"IMAGE\"},\"sections\":[{\"widgets\":[{\"keyValue\":{\"topLabel\":\"${CIRCLE_TAG}\",\"content\":\"${CIRCLE_SHA1}\"}}]},{\"widgets\":[{\"buttons\":[{\"textButton\":{\"text\":\"DETAILS\",\"onClick\":{\"openLink\":{\"url\":\"${CIRCLE_BUILD_URL}\"}}}}]}]}]}]}"
+            $CHAT_WEBHOOK_URL
