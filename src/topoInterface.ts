@@ -97,4 +97,19 @@ export default class TopoInterface {
       console.error('Could not create technology: ', error);
     }
   };
+
+  deleteAll = async () => {
+    const query = `
+      mutation delete {
+        deleteAll {result}
+      }
+    `;
+
+    try {
+      await request(this.host, query);
+      console.log("Deleted existing data");
+    } catch (error) {
+      console.error('Could not delete existing data: ', error);
+    }
+  };
 }

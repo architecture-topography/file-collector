@@ -25,24 +25,26 @@ export default class JsonProcessor {
     this.topoInterface = topoInterface;
   }
 
-  process = (json: any) => {
+  process = async (json: any) => {
     const valid = validate(json);
     if (!valid) {
       throw new Error(`Schema not valid: ${validate.errors}`);
     }
 
+    await this.topoInterface.deleteAll();
+
     if (json.technologies) {
-      this.createTechnologies(json.technologies);
+      await this.createTechnologies(json.technologies);
     }
 
-    this.createBoxes(json.boxes);
+    await this.createBoxes(json.boxes);
   };
 
   private createTechnologies = async (
     technologies: Array<{id: string; name: string}>,
   ) => {
     const technologyQueries = technologies.map(tech =>
-      this.topoInterface.createTechnology(tech.id, tech.name)
+      this.topoInterface.createTechnology(tech.id, tech.name),
     );
     return Promise.all(technologyQueries);
   };
@@ -70,7 +72,12 @@ export default class JsonProcessor {
 
   private createSystems = async (systems: ISystem[], parentId: string) => {
     const systemQueries = systems.map(async system => {
-      await this.topoInterface.createSystem(system.id, system.name, system.technologies, parentId);
+      await this.topoInterface.createSystem(
+        system.id,
+        system.name,
+        system.technologies,
+        parentId,
+      );
     });
     return Promise.all(systemQueries);
   };
