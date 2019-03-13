@@ -25,7 +25,7 @@ import TopoInterface from './topoInterface';
 const cli = (args: any = process.argv) => {
   console.log(
     chalk.yellow(
-      figlet.textSync('TOPO JSON Collector', { horizontalLayout: 'full' })
+      'TOPO JSON Collector'
     )
   );
   commander

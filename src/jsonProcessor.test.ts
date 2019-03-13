@@ -14,6 +14,7 @@ describe('Json validation', () => {
       createTechnology,
       createBox,
       createSystem,
+      deleteAll: jest.fn(),
     }));
     createTechnology.mockClear();
     createBox.mockClear();
@@ -21,16 +22,20 @@ describe('Json validation', () => {
     jsonProcessor = new JsonProcessor(new TopoInterface('fakehost'));
   });
 
-  it('expect empty json to throw error', () => {
+  it('expect empty json to throw error', async () => {
     const json = {};
-    expect(() => {
-      jsonProcessor.process(json);
-    }).toThrowError();
+    let error: any;
+    try {
+      await jsonProcessor.process(json);
+    } catch (e) {
+      error = e;
+    }
+    expect(error.toString()).toContain('Schema not valid');
   });
 
-  it('expect to create technologies', () => {
+  it('expect to create technologies', async () => {
     const json = {
-      boxes: [ ],
+      boxes: [],
       technologies: [
         {
           id: 'tech_ruby',
@@ -42,12 +47,14 @@ describe('Json validation', () => {
         },
       ],
     };
-    jsonProcessor.process(json);
+
+    await jsonProcessor.process(json);
+
     expect(createTechnology).toHaveBeenCalledWith('tech_ruby', 'Ruby on Rails');
     expect(createTechnology).toHaveBeenCalledWith('tech_elixir', 'Elixir');
   });
 
-  it('expect to create box', () => {
+  it('expect to create box', async () => {
     const json = {
       boxes: [
         {
@@ -58,12 +65,14 @@ describe('Json validation', () => {
       ],
       technologies: [],
     };
-    jsonProcessor.process(json);
+
+    await jsonProcessor.process(json);
+
     expect(createBox).toHaveBeenCalledWith(
       'thoughtworks',
       'ThoughtWorks',
       'Platform',
-      {parentId: undefined}
+      {parentId: undefined},
     );
   });
 
