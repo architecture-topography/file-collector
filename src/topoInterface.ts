@@ -1,11 +1,29 @@
-export const createBox = (id: string, name: string, boxType: string, options?: {parentId?: string}) => {
-  // stub for creating box
-};
+export default class TopoInterface {
+  host: string;
 
-export const createSystem = (id: string, name: string, technologies: string[], parentId: string) => {
-  // stub for creating box
-};
+  constructor(host: string) {
+    this.host = host;
+  }
 
-export const createTechnology = (id: string, name: string) => {
-  // stub for creating box
-};
+  createBox = (
+    id: string,
+    name: string,
+    boxType: string,
+    options?: {parentId?: string},
+  ) => {
+    // stub for creating box
+  };
+
+  createSystem = (
+    id: string,
+    name: string,
+    technologies: string[],
+    parentId: string,
+  ) => {
+    // stub for creating box
+  };
+
+  createTechnology = (id: string, name: string) => {
+    // stub for creating box
+  };
+}
