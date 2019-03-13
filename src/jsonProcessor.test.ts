@@ -1,12 +1,24 @@
-import jsonProcessor from './jsonProcessor';
-import {createBox, createSystem, createTechnology} from './topoInterface';
+import JsonProcessor from './jsonProcessor';
+import TopoInterface from './topoInterface';
+
 jest.mock('./topoInterface');
 
 describe('Json validation', () => {
+  let jsonProcessor: JsonProcessor;
+  const createTechnology = jest.fn();
+  const createBox = jest.fn();
+  const createSystem = jest.fn();
+
   beforeEach(() => {
-    (createBox as any).mockClear();
-    (createTechnology as any).mockClear();
-    (createSystem as any).mockClear();
+    (TopoInterface as any).mockImplementation(() => ({
+      createTechnology,
+      createBox,
+      createSystem,
+    }));
+    createTechnology.mockClear();
+    createBox.mockClear();
+    createSystem.mockClear();
+    jsonProcessor = new JsonProcessor(new TopoInterface('fakehost'));
   });
 
   it('expect empty json to throw error', () => {
@@ -18,7 +30,7 @@ describe('Json validation', () => {
 
   it('expect to create technologies', () => {
     const json = {
-      boxes: [],
+      boxes: [ ],
       technologies: [
         {
           id: 'tech_ruby',
@@ -51,6 +63,7 @@ describe('Json validation', () => {
       'thoughtworks',
       'ThoughtWorks',
       'Platform',
+      {parentId: undefined}
     );
   });
 
