@@ -19,6 +19,9 @@ import commander from 'commander';
 import figlet from 'figlet';
 import fs from 'fs';
 
+import JsonProcessor from './jsonProcessor';
+import TopoInterface from './topoInterface';
+
 const cli = (args: any = process.argv) => {
   console.log(
     chalk.yellow(
@@ -29,7 +32,6 @@ const cli = (args: any = process.argv) => {
     .description('Please select one of the following actions: ')
     .option('-f, --file <file>', 'Parse JSON file')
     .option('--host <host>', 'Set host')
-    .option('--port <port>', 'Set port')
     .parse(process.argv);
 
   let jsonObject;
@@ -46,8 +48,7 @@ const cli = (args: any = process.argv) => {
           throw new Error('File not found: ' + commander.file);
         }
         jsonObject = parseJsonFileContent(data);
-        console.log(chalk.green('SUCCESS: Your file is valid.'));
-        console.log(JSON.stringify(jsonObject));
+        proccessFile(commander.host, jsonObject);
       } catch (error) {
         errorMessage(error);
       }
@@ -55,6 +56,12 @@ const cli = (args: any = process.argv) => {
   } catch (error) {
     errorMessage(error);
   }
+};
+
+const proccessFile = (host: string, json: any) => {
+  const topoInterface = new TopoInterface(host);
+  const jsonProcessor = new JsonProcessor(topoInterface);
+  jsonProcessor.process(json);
 };
 
 const errorMessage = (message: string) => {

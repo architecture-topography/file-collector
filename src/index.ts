@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-#!/usr/bin/env node
 import cli from './cli';
 
 cli();
