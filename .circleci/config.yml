@@ -17,6 +17,12 @@ jobs:
           name: "Package into binaries"
           command: |
             yarn package
+      - persist_to_workspace:
+          root: /root/project
+          paths:
+            - packaged/*
+
+
   release:
     docker:
       - image: tsub/ghr
