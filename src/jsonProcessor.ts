@@ -1,7 +1,9 @@
 import Ajv from 'ajv';
+import {createLogger} from './logger';
 import schema from './schema/jsonSchema.json';
 import TopoInterface from './topoInterface';
 
+const log = createLogger('jsonProcessor');
 const ajv = new Ajv();
 const validate = ajv.compile(schema);
 
@@ -28,6 +30,8 @@ export default class JsonProcessor {
   process = async (json: any) => {
     const valid = validate(json);
     if (!valid) {
+      log.error('JSON does not match schema')
+      log.warn(JSON.stringify(validate.errors))
       throw new Error(`Schema not valid: ${validate.errors}`);
     }
 

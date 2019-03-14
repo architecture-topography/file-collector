@@ -15,7 +15,7 @@
  */
 
 import { mockProcessStdout } from 'jest-mock-process';
-import { checkFile, parseJsonFileContent } from './cli';
+import { parseJsonFileContent } from './cli';
 
 describe('cli', () => {
   let mockStdout: any;
@@ -25,28 +25,6 @@ describe('cli', () => {
 
   beforeEach(() => {
     mockStdout = mockProcessStdout();
-  });
-
-  describe('checkFile functionality', () => {
-    it('if valid json file provided, no error thrown', () => {
-      const filename = 'hey/its/me/te.st.json';
-      expect(() => checkFile(filename)).not.toThrow();
-    });
-
-    it('if file is not .json format, throw an exception', () => {
-      const filename = 'test.text';
-      expect(() => checkFile(filename)).toThrow();
-    });
-
-    it('if .json is in the path but it is not a valid json file, throw an exception', () => {
-      const filename = '.json/test.text';
-      expect(() => checkFile(filename)).toThrow();
-    });
-
-    it('if file does not have a filename, throw an exception', () => {
-      const filename = 'apples';
-      expect(() => checkFile(filename)).toThrow();
-    });
   });
 
   describe('parseJsonFileContent functionality', () => {
