@@ -1,14 +1,14 @@
 import {request} from 'graphql-request';
-import TopoInterface from './topoInterface';
+import TopoConnector from './topoConnector';
 jest.mock('graphql-request');
 
 const HOST = 'http://FAKEHOST/';
 
-describe('topoInterface', () => {
-  let topoInterface: TopoInterface;
+describe('topoConnector', () => {
+  let topoConnector: TopoConnector;
 
   beforeEach(() => {
-    topoInterface = new TopoInterface(HOST);
+    topoConnector = new TopoConnector(HOST);
     (request as any).mockClear();
   });
 
@@ -22,7 +22,7 @@ describe('topoInterface', () => {
       }
     `;
 
-    await topoInterface.createBox('test-001', 'Test Box', 'Platform');
+    await topoConnector.createBox('test-001', 'Test Box', 'Platform');
 
     expect(request).toBeCalledWith(HOST, MUTATION, {
       boxType: 'Platform',
@@ -44,7 +44,7 @@ describe('topoInterface', () => {
       }
     `;
 
-    await topoInterface.createTechnology('tech-react', 'React');
+    await topoConnector.createTechnology('tech-react', 'React');
 
     expect(request).toBeCalledWith(HOST, MUTATION, {
       id: 'tech-react',
@@ -67,7 +67,7 @@ describe('topoInterface', () => {
       }
     `;
 
-    await topoInterface.createSystem('sys-001', 'Cool System', ['react'], 'parent-id');
+    await topoConnector.createSystem('sys-001', 'Cool System', ['react'], 'parent-id');
 
     expect(request).toBeCalledWith(HOST, MUTATION, {
       id: 'sys-001',

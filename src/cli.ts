@@ -20,7 +20,7 @@ import fs from 'fs';
 import Logger, {createLogger} from './logger';
 
 import JsonProcessor from './jsonProcessor';
-import TopoInterface from './topoInterface';
+import TopoConnector from './topoConnector';
 
 const logger = createLogger('cli');
 logger.setLevel(Logger.INFO);
@@ -60,8 +60,8 @@ const cli = (args: any = process.argv) => {
 };
 
 const proccessFile = (host: string, json: any) => {
-  const topoInterface = new TopoInterface(host);
-  const jsonProcessor = new JsonProcessor(topoInterface);
+  const topoConnector = new TopoConnector(host);
+  const jsonProcessor = new JsonProcessor(topoConnector);
   return jsonProcessor.process(json);
 };
 

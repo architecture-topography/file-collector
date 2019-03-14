@@ -1,7 +1,7 @@
 import JsonProcessor from './jsonProcessor';
-import TopoInterface from './topoInterface';
+import TopoConnector from './topoConnector';
 
-jest.mock('./topoInterface');
+jest.mock('./topoConnector');
 
 describe('Json validation', () => {
   let jsonProcessor: JsonProcessor;
@@ -10,7 +10,7 @@ describe('Json validation', () => {
   const createSystem = jest.fn();
 
   beforeEach(() => {
-    (TopoInterface as any).mockImplementation(() => ({
+    (TopoConnector as any).mockImplementation(() => ({
       createTechnology,
       createBox,
       createSystem,
@@ -19,7 +19,7 @@ describe('Json validation', () => {
     createTechnology.mockClear();
     createBox.mockClear();
     createSystem.mockClear();
-    jsonProcessor = new JsonProcessor(new TopoInterface('fakehost'));
+    jsonProcessor = new JsonProcessor(new TopoConnector('fakehost'));
   });
 
   it('expect empty json to throw error', async () => {

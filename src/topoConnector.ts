@@ -1,8 +1,8 @@
 import {request} from 'graphql-request';
 import {createLogger} from './logger';
-const log = createLogger('topoInterface');
+const log = createLogger('topoConnector');
 
-export default class TopoInterface {
+export default class TopoConnector {
   host: string;
 
   constructor(host: string) {
