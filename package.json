@@ -18,7 +18,8 @@
     "lint": "yarn tslint -c tslint.json 'src/**/*.{ts,js}?(x)'",
     "lint-fix": "yarn run lint --fix",
     "copyright": "copyright-header --copyrightHolder \"Thoughtworks Inc. All rights reserved\" --templateId \"apache\"",
-    "copyright-fix": "yarn run copyright --fix"
+    "copyright-fix": "yarn run copyright --fix",
+    "package": "yarn build && pkg lib/index.js --targets node10-linux-x64,node10-macos-x64,node10-win-x64 -o packaged/json-collector"
   },
   "repository": "git@github.com:architecture-topography/json-collector.git",
   "dependencies": {
@@ -44,6 +45,7 @@
     "copyright-header": "^0.4.4",
     "jest": "^24.1.0",
     "jest-mock-process": "^1.1.0",
+    "pkg": "^4.3.7",
     "ts-jest": "^23.10.5",
     "tslint": "^5.13.1",
     "tslint-config-prettier": "^1.18.0"
