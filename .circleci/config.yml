@@ -13,3 +13,7 @@ jobs:
           name: "Run Unit Tests"
           command: |
             yarn test
+      - run:
+          name: "Package into binaries"
+          command: |
+            yarn package
