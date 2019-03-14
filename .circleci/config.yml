@@ -18,7 +18,7 @@ jobs:
           command: |
             yarn package
       - persist_to_workspace:
-          root: /root/project
+          root: ./
           paths:
             - packaged/*
 
@@ -28,7 +28,7 @@ jobs:
       - image: tsub/ghr
     steps:
       - attach_workspace:
-          at: /root/project
+          at: ./
       - run: ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME v0.0.$CIRCLE_BUILD_NUM packaged/*
 
 workflows:
