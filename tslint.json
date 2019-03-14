@@ -14,7 +14,6 @@
     "jsRules": {},
     "rules": {
       "variable-name": ["allow-leading-underscore"],
-      "no-console": [false],
       "member-access": [false],
       "object-literal-sort-keys": [false]
     },
