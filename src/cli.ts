@@ -16,18 +16,17 @@
 
 import chalk from 'chalk';
 import commander from 'commander';
-import figlet from 'figlet';
 import fs from 'fs';
+import Logger, {createLogger} from './logger';
 
 import JsonProcessor from './jsonProcessor';
 import TopoInterface from './topoInterface';
 
+const logger = createLogger('cli');
+logger.setLevel(Logger.INFO);
+
 const cli = (args: any = process.argv) => {
-  console.log(
-    chalk.yellow(
-      'TOPO JSON Collector'
-    )
-  );
+  logger.info(chalk.yellow('TOPO JSON Collector'));
   commander
     .description('Please select one of the following actions: ')
     .option('-f, --file <file>', 'Parse JSON file')
@@ -38,17 +37,19 @@ const cli = (args: any = process.argv) => {
 
   try {
     if (!commander.file) {
+      logger.error('Please provide a file with -f <path/to/file.json>');
+      logger.error('Check help for other options with --help');
       throw new Error('Please provide a file');
     }
 
-    checkFile(commander.file);
-    fs.readFile(commander.file, 'utf8', (err: any, data: any) => {
+    fs.readFile(commander.file, 'utf8', async (err: any, data: any) => {
       try {
         if (err) {
+          logger.error('File not found:', commander.file);
           throw new Error('File not found: ' + commander.file);
         }
         jsonObject = parseJsonFileContent(data);
-        proccessFile(commander.host, jsonObject);
+        await proccessFile(commander.host, jsonObject);
       } catch (error) {
         errorMessage(error);
       }
@@ -61,27 +62,23 @@ const cli = (args: any = process.argv) => {
 const proccessFile = (host: string, json: any) => {
   const topoInterface = new TopoInterface(host);
   const jsonProcessor = new JsonProcessor(topoInterface);
-  jsonProcessor.process(json);
+  return jsonProcessor.process(json);
 };
 
 const errorMessage = (message: string) => {
-  console.log(chalk.red(message));
-  commander.outputHelp();
-};
-
-const checkFile = (file: string) => {
-  const fileExtension = file.substring(file.lastIndexOf('.'), file.length);
-  if (fileExtension !== '.json') {
-    throw new Error('Please provide a valid .json file.');
-  }
+  logger.error(
+    chalk.red('Something went wrong... please see above logs for details'),
+  );
+  logger.debug(message);
 };
 
 const parseJsonFileContent = (fileContent: string) => {
   try {
     return JSON.parse(fileContent);
   } catch (error) {
+    logger.error('JSON is not valid for file:', commander.file);
     throw new Error('JSON is not valid for file: ' + commander.file);
   }
 };
 export default cli;
-export { checkFile, parseJsonFileContent };
+export {parseJsonFileContent};

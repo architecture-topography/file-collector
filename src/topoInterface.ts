@@ -1,4 +1,6 @@
 import {request} from 'graphql-request';
+import {createLogger} from './logger';
+const log = createLogger('topoInterface');
 
 export default class TopoInterface {
   host: string;
@@ -31,9 +33,9 @@ export default class TopoInterface {
 
     try {
       const data = await request(this.host, query, variables);
-      console.log('Created box: ', data);
+      log.info('Created box:', (data as any).createBox.name);
     } catch (error) {
-      console.error('Could not create box: ', error);
+      log.error('Error creating box:', error.toString());
     }
   };
 
@@ -66,9 +68,9 @@ export default class TopoInterface {
 
     try {
       const data = await request(this.host, query, variables);
-      console.log('Created box: ', data);
+      log.info('Created System:', (data as any).createSystem.name);
     } catch (error) {
-      console.error('Could not create box: ', error);
+      log.error('Error creating system: ', error.toString());
     }
   };
 
@@ -92,9 +94,9 @@ export default class TopoInterface {
 
     try {
       const data = await request(this.host, query, variables);
-      console.log('Created technology: ', data);
+      log.info('Created technology:', (data as any).createTechnology.name);
     } catch (error) {
-      console.error('Could not create technology: ', error);
+      log.error('Error creating technology:', error.toString());
     }
   };
 
@@ -107,9 +109,9 @@ export default class TopoInterface {
 
     try {
       await request(this.host, query);
-      console.log("Deleted existing data");
+      log.warn("Deleted existing data");
     } catch (error) {
-      console.error('Could not delete existing data: ', error);
+      log.error('Error deleting existing data:', error.toString());
     }
   };
 }
