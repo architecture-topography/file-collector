@@ -13,23 +13,25 @@ jobs:
           name: "Run Unit Tests"
           command: |
             yarn test
+
+  release:
+    docker:
+      - image: circleci/node:8.12
+    steps:
+      - checkout
+      - run:
+          name: "Install requirements"
+          command: |
+            yarn install
       - run:
           name: "Package into binaries"
           command: |
             yarn package
-      - persist_to_workspace:
-          root: ./
-          paths:
-            - packaged/*
+      - run:
+          name: "Semantic release"
+          command: |
+            npx semantic-release
 
-
-  release:
-    docker:
-      - image: tsub/ghr
-    steps:
-      - attach_workspace:
-          at: ./
-      - run: ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME v0.0.$CIRCLE_BUILD_NUM packaged
 
 workflows:
   version: 2
@@ -37,8 +39,5 @@ workflows:
       jobs:
         - build
         - release:
-            filters:
-              tags:
-                only: /v[0-9]+\.[0-9]+\.[0-9]+/
             requires:
               - build
