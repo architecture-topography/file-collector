@@ -1,0 +1,402 @@
+{
+  "technologies": [
+    {
+      "id": "tech_java",
+      "name": "Java"
+    },
+    {
+      "id": "tech_cobol",
+      "name": "Cobol"
+    },
+    {
+      "id": "tech_react",
+      "name": "React"
+    }
+  ],
+  "boxes": [
+    {
+      "id": "experience",
+      "name": "Experience",
+      "boxType": "Platform",
+      "boxes": [
+        {
+          "id": "digital",
+          "name": "Digital",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "channel-services",
+              "name": "Channel Services",
+              "boxType": "Capability",
+              "systems": [
+                {
+                  "id": "webinsure",
+                  "name": "WebInsure",
+                  "technologies": [
+                    "tech_react"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "customer-self-service",
+              "name": "Customer Self-Service",
+              "boxType": "Capability"
+            },
+            {
+              "id": "experience-optimisation",
+              "name": "Experience Optimisation",
+              "boxType": "Capability"
+            },
+            {
+              "id": "content-management",
+              "name": "Content Management",
+              "boxType": "Capability"
+            },
+            {
+              "id": "digital-asset-management",
+              "name": "Digital Asset Management",
+              "boxType": "Capability"
+            }
+          ]
+        },
+        {
+          "id": "contact-centre",
+          "name": "Customer Contact Centre",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "telephony",
+              "name": "Telephony",
+              "boxType": "Capability"
+            },
+            {
+              "id": "webchat",
+              "name": "Web Chat",
+              "boxType": "Capability"
+            },
+            {
+              "id": "contact-centre-crm",
+              "name": "CRM",
+              "boxType": "Capability"
+            },
+            {
+              "id": "knowledge-management",
+              "name": "Knowledge Management",
+              "boxType": "Capability"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marketing-and-loyalty",
+      "name": "Marketing and Loyalty",
+      "boxType": "Platform",
+      "boxes": [
+        {
+          "id": "brand-and-loyalty",
+          "name": "Brand and Loyalty",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "market-research",
+              "name": "Market Research",
+              "boxType": "Capability"
+            },
+            {
+              "id": "competitor-analysis",
+              "name": "Competitor Analysis",
+              "boxType": "Capability"
+            },
+            {
+              "id": "advertising",
+              "name": "Advertising",
+              "boxType": "Capability"
+            },
+            {
+              "id": "event-management",
+              "name": "Event Management",
+              "boxType": "Capability"
+            }
+          ]
+        },
+        {
+          "id": "marketing",
+          "name": "Marketing",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "segmentation",
+              "name": "Segmentation",
+              "boxType": "Capability"
+            },
+            {
+              "id": "analytics",
+              "name": "Analytics",
+              "boxType": "Capability"
+            },
+            {
+              "id": "marketing-automation",
+              "name": "Marketing Automation",
+              "boxType": "Capability"
+            },
+            {
+              "id": "content-strategy",
+              "name": "Content Strategy",
+              "boxType": "Capability"
+            },
+            {
+              "id": "marketing-reporting",
+              "name": "Reporting",
+              "boxType": "Capability"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "distribution",
+      "name": "Distribution",
+      "boxType": "Platform",
+      "boxes": [
+        {
+          "id": "policy",
+          "name": "Policy",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "policy-origination",
+              "name": "Origination",
+              "boxType": "Capability"
+            },
+            {
+              "id": "renewals",
+              "name": "Renewals",
+              "boxType": "Capability"
+            }
+          ]
+        },
+        {
+          "id": "pricing-and-underwriting",
+          "name": "Pricing and Underwriting",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "pricing",
+              "name": "Pricing",
+              "boxType": "Capability"
+            },
+            {
+              "id": "underwriting",
+              "name": "Underwriting",
+              "boxType": "Capability"
+            },
+            {
+              "id": "credit-risk",
+              "name": "Credit Risk Management",
+              "boxType": "Capability"
+            }
+          ]
+        },
+        {
+          "id": "insurance-accounting",
+          "name": "Insurance Accounting",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "insurance-billing",
+              "name": "Insurance Billing",
+              "boxType": "Capability"
+            },
+            {
+              "id": "reinsurance",
+              "name": "Reinsurance",
+              "boxType": "Capability"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "insurance-claims",
+      "name": "Insurance Claims",
+      "boxType": "Platform",
+      "boxes": [
+        {
+          "id": "claims-admin",
+          "name": "Claims Administration",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "claims-lodgement",
+              "name": "Claims Lodgement",
+              "boxType": "Capability"
+            },
+            {
+              "id": "claims-tracking",
+              "name": "Claims Tracking",
+              "boxType": "Capability"
+            },
+            {
+              "id": "claims-management",
+              "name": "Claims Management",
+              "boxType": "Capability"
+            }
+          ]
+        },
+        {
+          "id": "claims-fulfillment",
+          "name": "Claims Fulfillment",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "claims-supply-chain-management",
+              "name": "Claims Supply Chain Management",
+              "boxType": "Capability"
+            },
+            {
+              "id": "goods-and-services-fulfillment",
+              "name": "Goods and Services Fulfillment",
+              "boxType": "Capability"
+            },
+            {
+              "id": "claims-payments",
+              "name": "Claims Payments",
+              "boxType": "Capability"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "corporate",
+      "name": "Corporate Support",
+      "boxType": "Platform",
+      "boxes": [
+        {
+          "id": "workforce",
+          "name": "Workforce",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "recruitment",
+              "name": "Recruitment",
+              "boxType": "Capability"
+            },
+            {
+              "id": "learning-and-development",
+              "name": "Learning and Development",
+              "boxType": "Capability"
+            },
+            {
+              "id": "performance-management",
+              "name": "Performance Management",
+              "boxType": "Capability"
+            }
+          ]
+        },
+        {
+          "id": "legal-and-risk",
+          "name": "Legal and Risk",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "risk-advisory",
+              "name": "Risk Advisory",
+              "boxType": "Capability"
+            },
+            {
+              "id": "risk-reporting",
+              "name": "Risk Reporting",
+              "boxType": "Capability"
+            },
+            {
+              "id": "contract-review",
+              "name": "Contract Review",
+              "boxType": "Capability"
+            },
+            {
+              "id": "fraud",
+              "name": "Fraud",
+              "boxType": "Capability"
+            }
+          ]
+        },
+        {
+          "id": "finance",
+          "name": "Finance",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "budgeting-and-forecasting",
+              "name": "Budgeting and Forecasting",
+              "boxType": "Capability"
+            },
+            {
+              "id": "financial-accounting",
+              "name": "Financial Accounting",
+              "boxType": "Capability"
+            },{
+              "id": "payments",
+              "name": "Payments",
+              "boxType": "Capability"
+            },
+            {
+              "id": "receipting",
+              "name": "Receipting",
+              "boxType": "Capability"
+            },
+            {
+              "id": "banking",
+              "name": "Banking",
+              "boxType": "Capability"
+            },
+            {
+              "id": "capital-management",
+              "name": "Capital Management",
+              "boxType": "Capability"
+            },
+            {
+              "id": "payroll",
+              "name": "Payroll",
+              "boxType": "Capability"
+            },
+            {
+              "id": "procurement",
+              "name": "Procurement",
+              "boxType": "Capability"
+            }
+          ]
+        },
+        {
+          "id": "workspace",
+          "name": "Digital Workspace",
+          "boxType": "Domain",
+          "boxes": [
+            {
+              "id": "collaboration",
+              "name": "Collaboration",
+              "boxType": "Capability"
+            },
+            {
+              "id": "productivity",
+              "name": "Office Productivity",
+              "boxType": "Capability"
+            }
+          ]
+        },
+        {
+          "id": "facilities",
+          "name": "Facilities",
+          "boxType": "Domain"
+        }
+      ]
+    },
+    {
+      "id": "data-and-analytics",
+      "name": "Data and Analytics",
+      "boxType": "Platform"
+    }
+  ]
+}
