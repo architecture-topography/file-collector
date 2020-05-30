@@ -48,7 +48,7 @@
     "@types/mocha": "^5.2.5",
     "copyright-header": "^0.4.4",
     "jest": "^24.1.0",
-    "jest-mock-process": "^1.1.0",
+    "jest-mock-process": "^1.4.0",
     "last-release-git": "^0.0.3",
     "pkg": "^4.3.7",
     "semantic-release": "^15.13.3",
