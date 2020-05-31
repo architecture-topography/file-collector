@@ -1,7 +1,7 @@
-[![CircleCI](https://circleci.com/gh/architecture-topography/json-collector/tree/master.svg?style=svg)](https://circleci.com/gh/architecture-topography/json-collector/tree/master)
-# JSON Collector
+[![CircleCI](https://circleci.com/gh/architecture-topography/file-collector/tree/master.svg?style=svg)](https://circleci.com/gh/architecture-topography/file-collector/tree/master)
+# File Collector
 
-The json collector will read from a topo diagram from a json file and call the
+The file collector will read from a topo diagram from a json file and call the
 correct mutations in TOPO to create the diagram.
 
 ## Running locally
@@ -27,16 +27,16 @@ To package into binaries. Run `yarn package` and the packaged binaries will be i
 ## Usage
 Depending on whether your running with yarn start of with one of the packaged binaries, the start of your command will be different. The examples below assume that you're using the osx binary.
 
-To run the demo JSON on a locally running topo instance you would run the following. 
+To run a demo file on a locally running topo instance you would run the following. 
 
 ```
-./packaged/json-collector-macos -f examples/demo.json --host 'http://localhost:4000'
+./packaged/file-collector-macos -f examples/demo.json --host 'http://localhost:4000'
 ```
 
 This should give you output similar to
 
 ```
-[cli] TOPO JSON Collector
+[cli] TOPO File Collector
 [topoInterface] Deleted existing data
 [topoInterface] Created technology: React
 [topoInterface] Created technology: Ruby on Rails

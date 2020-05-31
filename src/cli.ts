@@ -26,7 +26,7 @@ const logger = createLogger('cli');
 logger.setLevel(Logger.INFO);
 
 const cli = (args: any = process.argv) => {
-  logger.info(chalk.yellow('TOPO JSON Collector'));
+  logger.info(chalk.yellow('TOPO File Collector'));
   commander
     .description('Please select one of the following actions: ')
     .option('-f, --file <file>', 'Parse JSON file')

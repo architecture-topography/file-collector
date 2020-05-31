@@ -1,10 +1,10 @@
 {
-  "name": "json-collector",
+  "name": "file-collector",
   "version": "1.0.0",
-  "description": "JSON collector for topo",
+  "description": "File collector for topo",
   "main": "./lib/index.js",
   "bin": {
-    "topo-json-collector": "./lib/index.js"
+    "topo-file-collector": "./lib/index.js"
   },
   "scripts": {
     "start-watch": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
@@ -19,9 +19,9 @@
     "lint-fix": "yarn run lint --fix",
     "copyright": "copyright-header --copyrightHolder \"Thoughtworks Inc. All rights reserved\" --templateId \"apache\"",
     "copyright-fix": "yarn run copyright --fix",
-    "package": "yarn build && pkg lib/index.js --targets node10-linux-x64,node10-macos-x64,node10-win-x64 -o packaged/json-collector"
+    "package": "yarn build && pkg lib/index.js --targets node10-linux-x64,node10-macos-x64,node10-win-x64 -o packaged/file-collector"
   },
-  "repository": "git@github.com:architecture-topography/json-collector.git",
+  "repository": "git@github.com:architecture-topography/file-collector.git",
   "dependencies": {
     "@types/figlet": "^1.2.0",
     "@types/node": "^14.0.6",
