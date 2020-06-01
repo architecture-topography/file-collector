@@ -30,7 +30,7 @@
     "clear": "^0.1.0",
     "commander": "^5.1.0",
     "figlet": "^1.2.1",
-    "graphql-request": "^1.8.2",
+    "graphql-request": "^2.0.0",
     "graphql-tag": "^2.10.1",
     "js-logger": "^1.6.0",
     "nodemon": "^2.0.4",
