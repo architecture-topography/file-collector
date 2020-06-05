@@ -1,3 +1,4 @@
+import 'cross-fetch/polyfill';
 import {request} from 'graphql-request';
 import {createLogger} from './logger';
 const log = createLogger('topoConnector');
