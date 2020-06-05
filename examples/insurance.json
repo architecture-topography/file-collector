@@ -17,12 +17,12 @@
     {
       "id": "experience",
       "name": "Experience",
-      "boxType": "Platform",
+      "boxType": "Domain",
       "boxes": [
         {
           "id": "digital",
           "name": "Digital",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "channel-services",
@@ -63,7 +63,7 @@
         {
           "id": "contact-centre",
           "name": "Customer Contact Centre",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "telephony",
@@ -92,12 +92,12 @@
     {
       "id": "marketing-and-loyalty",
       "name": "Marketing and Loyalty",
-      "boxType": "Platform",
+      "boxType": "Domain",
       "boxes": [
         {
           "id": "brand-and-loyalty",
           "name": "Brand and Loyalty",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "market-research",
@@ -124,7 +124,7 @@
         {
           "id": "marketing",
           "name": "Marketing",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "segmentation",
@@ -158,12 +158,12 @@
     {
       "id": "distribution",
       "name": "Distribution",
-      "boxType": "Platform",
+      "boxType": "Domain",
       "boxes": [
         {
           "id": "policy",
           "name": "Policy",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "policy-origination",
@@ -180,7 +180,7 @@
         {
           "id": "pricing-and-underwriting",
           "name": "Pricing and Underwriting",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "pricing",
@@ -202,7 +202,7 @@
         {
           "id": "insurance-accounting",
           "name": "Insurance Accounting",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "insurance-billing",
@@ -221,12 +221,12 @@
     {
       "id": "insurance-claims",
       "name": "Insurance Claims",
-      "boxType": "Platform",
+      "boxType": "Domain",
       "boxes": [
         {
           "id": "claims-admin",
           "name": "Claims Administration",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "claims-lodgement",
@@ -248,7 +248,7 @@
         {
           "id": "claims-fulfillment",
           "name": "Claims Fulfillment",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "claims-supply-chain-management",
@@ -272,12 +272,12 @@
     {
       "id": "corporate",
       "name": "Corporate Support",
-      "boxType": "Platform",
+      "boxType": "Domain",
       "boxes": [
         {
           "id": "workforce",
           "name": "Workforce",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "recruitment",
@@ -299,7 +299,7 @@
         {
           "id": "legal-and-risk",
           "name": "Legal and Risk",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "risk-advisory",
@@ -326,7 +326,7 @@
         {
           "id": "finance",
           "name": "Finance",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "budgeting-and-forecasting",
@@ -372,7 +372,7 @@
         {
           "id": "workspace",
           "name": "Digital Workspace",
-          "boxType": "Domain",
+          "boxType": "Subdomain",
           "boxes": [
             {
               "id": "collaboration",
@@ -389,14 +389,14 @@
         {
           "id": "facilities",
           "name": "Facilities",
-          "boxType": "Domain"
+          "boxType": "Subdomain"
         }
       ]
     },
     {
       "id": "data-and-analytics",
       "name": "Data and Analytics",
-      "boxType": "Platform"
+      "boxType": "Domain"
     }
   ]
 }
