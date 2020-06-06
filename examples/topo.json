@@ -1,0 +1,65 @@
+{
+    "technologies": [
+      {
+        "id": "node",
+        "name": "Node.js"
+      },
+      {
+        "id": "neo4j",
+        "name": "Neo4j"
+      }
+    ],
+    "boxes": [
+      {
+        "id": "delivery-infrastructure",
+        "name": "Delivery Infrastructure",
+        "boxType": "Domain",
+        "boxes": [
+          {
+            "id": "domain-repository",
+            "name": "Domain Repository",
+            "boxType": "Subdomain",
+            "boxes": [
+              {
+                "id": "data-collection",
+                "name": "Data Collection",
+                "boxType": "Capability",
+                "systems": [
+                  {
+                    "id": "file-collector",
+                    "name": "File Collector",
+                    "technologies": ["node"]
+                  }
+                ]
+              },
+              {
+                "id": "store-and-query",
+                "name": "Data Store and Query",
+                "boxType": "Capability",
+                "systems": [
+                  {
+                    "id": "topo",
+                    "name": "Topo",
+                    "technologies": ["node", "neo4j"]
+                  }
+                ]
+              },
+              {
+                "id": "presentation",
+                "name": "Presentation",
+                "boxType": "Capability",
+                "systems": [
+                  {
+                    "id": "c4-presenter",
+                    "name": "C4 Presenter",
+                    "technologies": ["node"]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
