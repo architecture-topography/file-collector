@@ -53,7 +53,7 @@
     "last-release-git": "^0.0.3",
     "pkg": "^4.3.7",
     "semantic-release": "^17.0.8",
-    "ts-jest": "^26.1.0",
+    "ts-jest": "^26.1.1",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0"
   }
