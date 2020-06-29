@@ -51,7 +51,7 @@
     "jest": "^26.1.0",
     "jest-mock-process": "^1.4.0",
     "last-release-git": "^0.0.3",
-    "pkg": "^4.3.7",
+    "pkg": "^4.4.9",
     "semantic-release": "^17.1.1",
     "ts-jest": "^26.1.1",
     "tslint": "^6.1.2",
