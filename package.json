@@ -31,7 +31,7 @@
     "commander": "^5.1.0",
     "figlet": "^1.2.1",
     "graphql-request": "^2.0.0",
-    "graphql-tag": "^2.10.1",
+    "graphql-tag": "^2.10.4",
     "js-logger": "^1.6.0",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
