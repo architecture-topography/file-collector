@@ -29,7 +29,9 @@
     "chalk": "^4.1.0",
     "clear": "^0.1.0",
     "commander": "^6.0.0",
+    "cross-fetch": "3.0.5",
     "figlet": "^1.5.0",
+    "graphql": "^15.3.0",
     "graphql-request": "^3.0.0",
     "graphql-tag": "^2.11.0",
     "js-logger": "^1.6.0",
@@ -37,16 +39,15 @@
     "path": "^0.12.7",
     "prettier": "^2.0.5",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.7",
-    "cross-fetch": "3.0.5"
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/github": "^7.0.7",
     "@semantic-release/release-notes-generator": "^9.0.1",
-    "@types/mocha": "^8.0.1",
     "@types/jest": "^26.0.8",
+    "@types/mocha": "^8.0.1",
     "copyright-header": "^0.4.4",
     "jest": "^26.2.2",
     "jest-mock-process": "^1.4.0",
