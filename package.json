@@ -47,7 +47,7 @@
     "@semantic-release/github": "^7.1.1",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "@types/mocha": "^8.0.3",
-    "@types/jest": "^26.0.13",
+    "@types/jest": "^26.0.14",
     "copyright-header": "^0.4.4",
     "jest": "^26.4.2",
     "jest-mock-process": "^1.4.0",
