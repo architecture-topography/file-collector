@@ -35,7 +35,7 @@
     "graphql-request": "^3.4.0",
     "graphql-tag": "^2.12.5",
     "js-logger": "^1.6.1",
-    "nodemon": "^2.0.8",
+    "nodemon": "^2.0.9",
     "path": "^0.12.7",
     "prettier": "^2.3.2",
     "ts-node": "^9.1.1",
