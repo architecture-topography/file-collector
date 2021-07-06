@@ -50,7 +50,7 @@
     "@types/mocha": "^8.2.2",
     "copyright-header": "^0.4.4",
     "jest": "^26.6.3",
-    "jest-mock-process": "^1.4.0",
+    "jest-mock-process": "^1.4.1",
     "last-release-git": "^0.0.3",
     "pkg": "^4.5.1",
     "semantic-release": "^17.4.4",
