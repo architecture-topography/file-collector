@@ -764,10 +764,10 @@
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
 
-"@types/figlet@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@types/figlet/-/figlet-1.5.1.tgz#a9f06317b8900b7d3ad8d8bb577ec26225ac16a8"
-  integrity sha512-dwOwRPJY122FcWRdiXic+H72AOD+Cx69NO6Z9STtm9eIvM47qBe0vXdD/w4ad+ygIqvSTdnQyeMwlxotDjlvPg==
+"@types/figlet@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@types/figlet/-/figlet-1.5.2.tgz#59b2fdd5d15f6337555667f5192e27f448cd1f10"
+  integrity sha512-1+taqbVokkR79F0KYwgUMqNoWlpiXPxYPCim7Idtw9kZ+tj8JtLwFyumF5UOBFB3dQHUzxLQrA/WA8qPppPm6w==
 
 "@types/graceful-fs@^4.1.2":
   version "4.1.3"
